@@ -9,7 +9,7 @@
     state: present
 
 - name: "get the catalogue entries count"
-  ansible.builtin.shell:  mongo --host ongodb.cbdhaba.online --quiet --eval 'db = db.getSiblingDB("catalogue"); db.products.count()'
+  ansible.builtin.shell:  mongo --host mongodb.cbdhaba.online --quiet --eval 'db = db.getSiblingDB("catalogue"); db.products.count()'
   register: products_count
   when: component == "catalogue"
 
@@ -23,11 +23,11 @@
 #     msg: "entries count: {{entries_count}}"
 
 - name: "load catalogue data"
-  ansible.builtin.shell: "mongo --host ongodb.cbdhaba.online < /app/schema/{{component}}.js"
+  ansible.builtin.shell: "mongo --host mongodb.cbdhaba.online < /app/schema/{{component}}.js"
   when: component == "catalogue" and products_count.stdout == "0"  # keep double quotes
   #ignore_errors: true
 
 - name: "load user data"
-  ansible.builtin.shell: "mongo --host ongodb.cbdhaba.online < /app/schema/{{component}}.js"
+  ansible.builtin.shell: "mongo --host mongodb.cbdhaba.online < /app/schema/{{component}}.js"
   when: component == "user" and users_count.stdout == "0"  # keep double quotes
   #ignore_errors: true
