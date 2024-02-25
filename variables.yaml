@@ -2,3 +2,9 @@ MONOGODB_HOST: mongodb.cbdhaba.online
 REDIS_HOST: redis.cbdhaba.online
 CART_HOST: cart.cbdhaba.online
 CATALOGUE_HOST: catalogue.cbdhaba.online
+SHIPPING_HOST: shipping.cbdhaba.online
+PAYMENT_HOST: payment.cbdhaba.online
+USER_HOST: user.cbdhaba.online
+MYSQL_HOST: mysql.cbdhaba.online
+DISPATCH_HOST: dispatch.cbdhaba.online
+RABBITMQ_HOST: rabbitmq.online.online
